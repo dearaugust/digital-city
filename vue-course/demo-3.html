@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue 练习3</title>
+</head>
+<body>
+
+  <div id="app" v-cloak>
+    <h1 :id='id' v-bind:class='id'>hello vue</h1>   <!-- v-bind 绑定属性 (缩写 :id) -->
+    <h1 class="vue" v-bind:class="{ active: isActive, 'text-danger': hasError }" :style='{color: "red", fontSize: `${fontSize}px`}'>vue class</h1>
+    <button>Click</button>
+  </div>
+
+  <script src="./vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        id: 'hello',
+        isActive: true,
+        hasError: true,
+        fontSize: 50
+      }
+    })
+    vm.id = 'world'
+
+    var oApp = document.getElementById('app')
+    var oButton = document.querySelector('button')
+    console.log(oApp);
+    console.log(oButton);
+    oButton.onclick = function(){
+      oApp.style.color = blue
+      console.log(1);
+    }
+  </script>
+</body>
+</html>

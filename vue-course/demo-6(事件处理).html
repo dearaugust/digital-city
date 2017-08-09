@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue 练习6(事件处理)</title>
+</head>
+<body>
+
+  <div id="app">
+    <h1 v-show="show">{{title}}</h1>
+    <button v-on:click="change('hello', $event)">切换</button>
+
+    <p>{{`点击了${num}次`}}</p>
+    <button v-on:click="num += 1">点击</button>
+  </div>
+
+  <script src="./vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        title: 'hello vue',
+        show: true,
+        num: 0
+      },
+      methods: {
+        change(text, event){
+          console.log(event);
+          this.show = !this.show
+        }
+      }
+    })
+  </script>
+</body>
+</html>

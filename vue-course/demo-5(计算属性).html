@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue 练习5 (计算属性)</title>
+</head>
+<body>
+
+  <div id="app">
+    <table>
+      <thead>
+        <tr>
+          <th>书名</th>
+          <th>单价</th>
+          <th>数量</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for='item in books'>
+          <td>{{item.name}}</td>
+          <td>{{item.price}}</td>
+          <td><input v-model.number="item.num" type="number"/></td>
+        </tr>
+      </tbody>
+    </table>
+    <h1>总价： {{ totalMoney }}</h1>
+    <h1>总价： {{ total() }}</h1>
+  </div>
+
+  <script src="./vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        books: [
+          {name: 'nodejs', price: 3, num: 3},
+          {name: 'js', price: 5, num: 3},
+          {name: 'react', price: 80, num: 1},
+          {name: 'vue', price: 3, num: 3}
+        ]
+      },
+      computed: {
+        totalMoney: function() {
+          let total = 0
+          this.books.forEach( item => total = total + item.price*item.num )
+          return total
+        }
+      },
+      methods: {     // vue 的方法都要写在 methods 下   方法名 total()执行
+        total() {
+          let total = 0
+          this.books.forEach( item => total = total + item.price*item.num )
+          return total
+        }
+      }
+    })
+  </script>
+</body>
+</html>

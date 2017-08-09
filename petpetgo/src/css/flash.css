@@ -1,0 +1,17 @@
+.flash {
+  position: fixed;
+  z-index: 1000;
+  text-align: center;
+  padding: 10px;
+  line-height: 35px;
+  width: 180px;
+  height: 55px;
+  top: 50%;
+  margin-top: -40px;
+  right: 50%;
+  margin-right: -90px;
+  color: #fff;
+  background: #363636;
+  border-radius: 7px;
+  /*TODO: 文字垂直居中 */
+}

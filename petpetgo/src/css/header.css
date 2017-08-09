@@ -1,0 +1,31 @@
+.header {
+  background-color: #ffbe3a;
+  color: white;
+  height: 50px;
+  position: relative;
+}
+
+.header .more-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 20px;
+  height: 20px;
+  float: right;
+  background-image: url(../img/more.svg);
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+.header .back-button {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 20px;
+  height: 20px;
+  float: right;
+  background-image: url(../img/left.svg);
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+}

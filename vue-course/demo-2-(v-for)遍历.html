@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue 练习2</title>
+</head>
+<body>
+
+  <div id="app">
+
+    <ul>
+      <li v-for='(item,index) in todos'>    <!-- v-for 遍历 -->
+        {{`index为${index}`}} -- {{ item.id }} --- {{ item.text }}
+      </li>
+    </ul>
+    <template v-for='todo in todos'>
+      <p>{{todo.id}}</p>
+      <h1>{{todo.text}}</h1>
+    </template>
+
+    <div v-for='(item, key, index) in obj'>   <!-- v-for 遍历传的三个值 -->
+      <h1 style="color:red">{{key}} : {{item}} - {{index}}</h1>
+    </div>
+
+    <template v-for='num in 10'><span> {{num}} </span></template> 
+
+  </div>
+
+  <script src="./vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        todos: [
+          {id: 1, text: 'what the 1'},
+          {id: 2, text: 'what the 2'},
+          {id: 3, text: 'what the 3'}
+        ],
+        obj: {
+          name: 'lyc',
+          age: 27,
+          tall: 1863313
+        }
+      }
+    })
+  </script>
+</body>
+</html>

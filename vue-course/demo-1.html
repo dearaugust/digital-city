@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue 练习1</title>
+  <style>
+    [v-cloak] {
+      display: none;  /*不会显示，直到编译结束 和 CSS 规则如 [v-cloak] { display: none } 一起用时*/
+    }
+  </style>
+</head>
+<body>
+
+  <div id="app" v-cloak>  <!-- 不会显示{{}}，直到编译结束 -->
+    <h1>{{ `Vue.JS : ${msg}, ${msg.slice(5)}` }}</h1>
+    {{ 5+5 }}
+    <h2 v-once>{{num}}</h2> <!-- v-once 只被渲染一次 -->
+    {{ true ? '真的' : '假的'}}
+    <p v-text='num + "666"'></p>  <!-- 更新元素的 textContent -->
+    <p v-html='numhtml'></p>  <!-- 更新元素的 textContent -->
+
+    <template v-if="show">      <!-- template 标签不会渲染出来 -->
+      <button>vue按钮</button>
+    </template>                       <!-- v-if 和 v-else 的使用 -->
+    <h2 v-else>vue按钮! data 属性是show:false才显示</h2>
+    <h2 v-show='show'> v-show 控制 display </h2>  <!-- v-show 渲染 -->
+    <div style="border:1px solid red">
+      <div v-if="type==='A'">A</div>
+      <div v-else-if="type==='B'">B</div>
+      <div v-else-if="type==='B'">C</div>
+      <div v-else>Not A,B,C</div>
+    </div>
+
+  </div>
+
+  <script src="./vue.js"></script>
+  <script>
+    var vm = new Vue({    //将数据渲染进 DOM
+      el: '#app',   //绑定 DOM 元素属性
+      data: {    //定义属性
+        msg: 'hello vue',
+        num: 666,
+        numhtml: '<span>标签渲染</span>',
+        show: true,
+        type: 'B'
+      }
+    })
+    console.log(vm);
+    setTimeout(function(){
+      vm.num='hello react'
+    },3000)
+
+    // new Vue ({
+    //   data: {
+    //     msg: '另一种渲染写法'，
+    //     num: 666
+    //   }
+    // }).$mount('#newapp')
+  </script>
+</body>
+</html>
